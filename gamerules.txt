@@ -1,0 +1,35 @@
+EQUIPMENT
+- parcheesi board
+- sixteen game pieces (4 per player)
+- two six-sided dice
+
+OBJECTIVE
+The objective of the game is to move to move all your pieces from your home all the way around
+the board to the center of the board, called the "finish" area before your opponents do. 
+
+TURN
+- the player must begin their turn by rolling both dice *see appendix 1
+    MOVEMENT
+    - two options for movement
+
+
+
+
+
+
+
+
+
+MOVEMENT
+
+
+
+
+
+
+
+
+
+APPENDIX
+1. If a player only has one piece remaining in play that must move between one and six steps,
+they must roll only one die. Rolling both dice results in an end of the player's turn.
