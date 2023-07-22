@@ -1,5 +1,5 @@
 from Player import Player
-from MapParser import MapParser
+from GameGUI import GameGUI as gui
 
 # create 4 players
 red = Player("red")
@@ -7,8 +7,6 @@ blue = Player("blue")
 green = Player("green")
 yellow = Player("yellow")
 players = [red, blue, green, yellow]
-
-map_parser = MapParser()
 
 # decide starting player
 tie = True
@@ -46,7 +44,6 @@ while tie:
                 players.append(yellow)
 
 print("the first player is:", players[0].get_color()) # debug
-
 # who goes first
 goes_first = players[0].get_color()
 goes_first_index = 0
@@ -73,3 +70,12 @@ players = players[goes_first_index:] + players[:goes_first_index]
 print("the order of play is:") # debug
 for player in players:
     print(player.get_color()) # debug
+
+
+
+
+# everyone rolls once
+# for player in players:
+#     roll = player.roll()
+
+gui()

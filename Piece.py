@@ -2,7 +2,8 @@ class Piece:
     def __init__(self):
         self.is_in_play = True
         self.is_in_jail = True
-        self.location = "out"
+        self.color = "out"
+        self.step = "out"
 
     def set_location(self, location):
         self.location = location
@@ -22,3 +23,8 @@ class Piece:
 
     def is_piece_in_play(self):
         return self.is_in_play
+    
+    def move_piece(self, spaces):
+        self.location += spaces
+
+    

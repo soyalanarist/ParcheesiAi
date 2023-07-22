@@ -21,9 +21,11 @@ class Player:
     def get_color(self):
         return self.color
     
+    # use roll instead
     def roll_dice(self):
         return (randint(1, 6), randint(1, 6))
 
+    # use roll instead
     def roll_die(self):
         return randint(1, 6)
     
@@ -38,3 +40,4 @@ class Player:
         if self.check_if_two_or_more_pieces_in_play():
             return self.roll_dice()
         return self.roll_die()
+    
