@@ -3,7 +3,7 @@ import pygame
 class GameGUI:
     def __init__(self):
         pygame.init()
-        self.window_width = 1280
+        self.window_width = 960
         self.window_height = 960
 
         self.window = pygame.display.set_mode((self.window_width, self.window_height))
@@ -13,8 +13,8 @@ class GameGUI:
 
         pygame.display.set_caption("Parcheesi")
 
-        self.step_long_dim = 140
-        self.step_short_dim = 40
+        self.step_long_dim = 130
+        self.step_short_dim = 30
 
         self.red = (220, 50, 50)
         self.blue = (50, 50, 220)
@@ -25,7 +25,7 @@ class GameGUI:
         self.bottom_edge = self.window_height - self.step_short_dim - 20
         self.top_edge = 20
         self.left_edge = 20
-        self.right_edge = self.window_width - self.step_long_dim - 20
+        self.right_edge = self.window_width - self.step_short_dim - 20
         self.horizontal_center = (self.window_width - self.step_long_dim)/2
         self.vertical_center = (self.window_height - self.step_long_dim)/2
 
@@ -46,7 +46,8 @@ class GameGUI:
     def draw_steps(self):
         self.draw_horizontal_steps()
         self.draw_vertical_steps()
-        # self.draw_jails()
+        self.draw_jails()
+        # self.draw_diagonal_steps()
 
     def draw_horizontal_step(self, color, x_coord, y_coord):
         pygame.draw.rect(self.window, color, pygame.Rect(x_coord, y_coord, self.step_long_dim, self.step_short_dim), 2)
@@ -130,7 +131,7 @@ class GameGUI:
                 color = self.blue
             self.draw_vertical_step(color, x_coord, y_coord)
             x_coord += self.step_short_dim + 10
-        # to green start end
+        # to green start
         color = self.default_color
         x_coord = self.left_edge
         y_coord = self.vertical_center + self.step_long_dim + 20
@@ -141,6 +142,46 @@ class GameGUI:
             x_coord += self.step_short_dim + 10
 
         # right half of board
+        # draw red finish steps
+        color = self.red
+        x_coord = self.right_edge
+        y_coord = self.vertical_center
+        for i in range(8):
+            self.draw_vertical_step(color, x_coord, y_coord)
+            x_coord -= self.step_short_dim + 10
+        # to red start
+        color = self.default_color
+        x_coord = self.right_edge
+        y_coord = self.vertical_center - self.step_long_dim - 20
+        for i in range(5):
+            if i == 4:
+                color = self.red
+            self.draw_vertical_step(color, x_coord, y_coord)
+            x_coord -= self.step_short_dim + 10
+        # to yellow end
+        color = self.default_color
+        x_coord = self.right_edge
+        y_coord = self.vertical_center + self.step_long_dim + 20
+        for i in range(5):
+            if i == 4:
+                color = self.yellow
+            self.draw_vertical_step(color, x_coord, y_coord)
+            x_coord -= self.step_short_dim + 10
+
+    def draw_diagonal_steps(self):
+        pass
 
     def draw_jails(self):
-        pass
+        # red jail
+        pygame.draw.rect(self.window, self.red, pygame.Rect(self.right_edge - 150, self.bottom_edge - 150, 150, 150), 2)
+        pygame.draw.rect(self.window, self.red, pygame.Rect(self.right_edge - 152, self.bottom_edge - 152, 154, 154), 2)
+
+        pygame.draw.rect(self.window, self.red, pygame.Rect(self.right_edge - 160, self.bottom_edge - 160, 150, 150), 2)
+        pygame.draw.rect(self.window, self.red, pygame.Rect(self.right_edge - 162, self.bottom_edge - 162, 154, 154), 2)
+        # blue jail
+
+        # green jail
+
+        # yellow jail
+
+        # make all of these with the corners facing the centre of the board
